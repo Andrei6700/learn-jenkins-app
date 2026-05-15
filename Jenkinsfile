@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+        // state build
         stage('Build') {
             agent{
                 docker{
@@ -18,6 +19,13 @@ pipeline {
                     npm run build
                     ls -la
                 '''
+            }
+        }
+
+        // stage test
+        stage('Test'){
+            steps{
+                echo 'Test stage'
             }
         }
     }
